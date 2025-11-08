@@ -3,6 +3,7 @@ import { useState, ChangeEvent, FormEvent } from 'react';
 
 interface FormData {
     equipmentReference: string;
+    user: string;
     date: string;
     time: string;
     maxTemp: string;
@@ -14,6 +15,7 @@ export default function TemperatureForm() {
 
     const [formData, setFormData] = useState<FormData>({
         equipmentReference: 'Container 01',
+        user: '',
         date: '',
         time: '',
         maxTemp: '',
@@ -43,6 +45,11 @@ export default function TemperatureForm() {
                 <div>
                     <label htmlFor="equipmentReference" className="block text-sm font-medium text-gray-700">Referência do Equipamento</label>
                     <input type="text" id="equipmentReference" name="equipmentReference" placeholder="Ex: Freezer-A01" value={formData.equipmentReference} onChange={handleChange} className="w-full p-2 border-gray-300 border rounded-md focus:ring-blue-500 focus:border-blue-500" />
+                </div>
+
+                <div>
+                    <label htmlFor="user" className="block text-sm font-medium text-gray-700">Usuário</label>
+                    <input type="text" id="user" name="user" value={formData.user} onChange={handleChange} className="w-full p-2 border-gray-300 border rounded-md focus:ring-blue-500 focus:border-blue-500" />
                 </div>
 
                 <div>
